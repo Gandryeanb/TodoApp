@@ -1,0 +1,28 @@
+.regist-div {
+    margin: 20px auto;
+    width: 60%;
+}
+
+.user-header {
+    height: 50px;
+    padding-left: 1%;
+    /* background-color: aqua */
+}
+
+.aa {
+    background-color: red;
+    width: 20px;
+}
+
+.content {
+    padding: 20px;
+}
+
+.card-todo {
+    margin-right: 3%;
+    margin-bottom: 3%;
+}
+
+.card-of-card {
+    padding-left: 4%;
+}
