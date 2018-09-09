@@ -1,5 +1,8 @@
+require('dotenv').config()
 const express = require('express')
+const cors = require("cors")
 const app = express()
+const axios = express('axios')
 const port = 3000
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://gandryeanb:manusia21!@ds149252.mlab.com:49252/todo');
@@ -10,6 +13,7 @@ const routeUser = require('./routes/user')
 const routeActivity = require('./routes/activity')
 
 // JSON AND PARSER
+app.use(cors())
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
