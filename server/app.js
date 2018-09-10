@@ -5,7 +5,7 @@ const app = express()
 const axios = express('axios')
 const port = 3000
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://gandryeanb:manusia21!@ds149252.mlab.com:49252/todo');
+mongoose.connect(String(process.env.MLAB_CONNECTION));
 const db = mongoose.connection;
 
 // ROUTES PATH
