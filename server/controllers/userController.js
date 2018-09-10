@@ -9,6 +9,7 @@ class UserController {
 
     static loginGoogle(req,res) {
         let token = req.headers.token
+        
         let identityUser;
         
         axios.get(`https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${token}`)
