@@ -77,7 +77,7 @@ and use routes ` http://localhost:8080/ `
 
 | URL         | Method | Description            |Data Body / Requirement                    | Data Params | Success Response | Error Response |
 | ----------- |:------:|:---------------------: |:-----------------------------------------:|:-----------:|:----------------:|:--------------:|
-| `/user/activity/undone`     |   GET  | Get undone activities user          | None                                      | None        | 200              | 500            |
+| `/user/activity/undone`     |   GET  | Get undone activities user          | None         | None        | 200              | 500            |
 #### Success Response
 SORTED BY dueDate ascending
 ```
@@ -128,7 +128,7 @@ SORTED BY dueDate ascending
 
 | URL         | Method | Description            |Data Body / Requirement                    | Data Params | Success Response | Error Response |
 | ----------- |:------:|:---------------------: |:-----------------------------------------:|:-----------:|:----------------:|:--------------:|
-| `/user/activity/done`     |   GET  | Get done activities user          | None                                      | None        | 200              | 500            |
+| `/user/activity/done` |   GET  | Get done activities user    | None            | None        | 200              | 500            |
 #### Success Response
 SORTED BY dueDate ascending
 ```
@@ -250,7 +250,7 @@ SORTED BY dueDate ascending
 
 | URL         | Method | Description            |Data Body / Requirement                    | Data Params | Success Response | Error Response |
 | ----------- |:------:|:---------------------: |:-----------------------------------------:|:-----------:|:----------------:|:--------------:|
-| `/user/activity/:id`|  DELETE  | Delete user activity |                                   | `id`        | 200              | 500            |
+| `/user/activity/:id`|  DELETE  | Delete user activity |  None                             | `id`        | 200              | 500            |
 #### Success Response
 ```
 {
@@ -262,7 +262,7 @@ SORTED BY dueDate ascending
 
 | URL         | Method | Description            |Data Body / Requirement                    | Data Params | Success Response | Error Response |
 | ----------- |:------:|:---------------------: |:-----------------------------------------:|:-----------:|:----------------:|:--------------:|
-| `/user/login`|  POST  | Login                 | `email`, `password`                       |         | 200              | 500            |
+| `/user/login`|  POST  | Login                 | `email`, `password`                       | None        | 200              | 500            |
 #### Success Response
 ```
 {
