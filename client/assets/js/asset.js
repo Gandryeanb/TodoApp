@@ -1,7 +1,5 @@
 function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    // console.log(googleUser.getAuthResponse().id_token);
-    
+    var profile = googleUser.getBasicProfile();    
     $.ajax({
         method : 'GET',
         url: 'http://localhost:3000/user/login/google',
@@ -52,9 +50,6 @@ function isThisRightPass(password) {
             }
         }
     }
-
-    // console.log(UppercaseStatus, LowercaseStatus, numbersStatus);
-    
 
     if (UppercaseStatus && LowercaseStatus && numbersStatus) {
         return true
