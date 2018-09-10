@@ -1,5 +1,33 @@
+function onSuccess(googleUser) {
+    let isButtonClicked = localStorage.getItem('gmailClicked')
+
+    if (isButtonClicked) {
+        onSignIn(googleUser)
+    }
+}
+function onFailure(error) {
+    console.log(error);
+}
+function renderButton() {
+    gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 45,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+    });
+}
+
+$("#my-signin2").click(function() {
+    localStorage.setItem('gmailClicked', true)
+    onSuccess
+})
+
+
 function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();    
+    
     $.ajax({
         method : 'GET',
         url: 'http://localhost:3000/user/login/google',
@@ -8,10 +36,10 @@ function onSignIn(googleUser) {
         }
     })
     .done(response => {
-        console.log(response)
         localStorage.setItem(
             "token",response.token
         )
+        localStorage.removeItem('gmailClicked')
         window.location.href = 'profile.html'
     })
     .catch(err => {
@@ -498,10 +526,7 @@ function doneActivity(id) {
 function logout() {
 
     localStorage.removeItem("token")
-    signOut()
-    window.location.href = "https://accounts.google.com/logout"
-    
-    document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:8080/index.html";
+    window.location.href = "index.html"    
 }
 
 $("#addBtn").click(() => {
