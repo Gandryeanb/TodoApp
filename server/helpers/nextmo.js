@@ -5,7 +5,7 @@ const nexmo = new Nexmo({
   apiSecret: String(process.env.NEXMO_API_SECRET)
 })
 
-let target = +6201283771053
+let target = +6285750287026
 
 const from = 'Todo Andryean'
 const to = target
@@ -13,7 +13,8 @@ const text = 'Thx for sign up Todo Apps'
 
 nexmo.message.sendSms(from, to, text, (error, response) => {
   if(error) {
-    throw error;
+    console.log(error);
+    
   } else if(response.messages[0].status != '0') {
     console.error(response);
     throw 'Nexmo returned back a non-zero status';
@@ -21,3 +22,4 @@ nexmo.message.sendSms(from, to, text, (error, response) => {
     console.log(response);
   }
 });
+

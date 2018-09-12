@@ -46,7 +46,7 @@ class ActivityController {
             }
         }
         
-        Activity.updateOne({ _id : req.body.id },{ $set : obj },(err, report) => {
+        Activity.updateOne({ _id : req.body.id, userId : req.decoded.id },{ $set : obj },(err, report) => {
             if (!err) {
                 
                 res.status(200).json({
@@ -65,7 +65,7 @@ class ActivityController {
     }
 
     static deleteActivity(req, res) {
-        Activity.deleteOne({_id : req.params.id }, function (err) {
+        Activity.deleteOne({_id : req.params.id, userId: req.decoded.id }, function (err) {
             if (!err) {
                 res.status(200).json({
                     message : `Deleting activity with ID ${req.params.id} success`
@@ -121,7 +121,7 @@ class ActivityController {
             status : 1
         }
 
-        Activity.updateOne({ _id : req.body.id },{ $set : obj }, (err, report) => {
+        Activity.updateOne({ _id : req.body.id , userId : req.decoded.id },{ $set : obj }, (err, report) => {
             if (!err) {
                 res.status(200).json({
                     message : `Updating data success`,
